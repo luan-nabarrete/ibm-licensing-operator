@@ -10,12 +10,12 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   sources:
-    - repoURL: "https://github.com/luan-nabarrete/ibm-licensing-operator"
+    - repoURL: "https://github.com/luan-nabarrete/helm-charts"
       targetRevision: "latest-4.x"
       path: deploy/argo-cd/components/license-service/helm-cluster-scoped
       helm:
         valueFiles:
           - 'values.yaml'
-    - repoURL: "https://github.com/luan-nabarrete/ibm-licensing-operator"
-      targetRevision: "latest-4.x"
-      path: deploy/argo-cd/prerequisites/licensing
+    # - repoURL: "https://github.com/luan-nabarrete/ibm-licensing-operator"
+    #   targetRevision: "latest-4.x"
+    #   path: deploy/argo-cd/prerequisites/licensing
