@@ -4,14 +4,18 @@ metadata:
   name: ibm-license-service
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
   sources:
-    - repoURL: "https://github.com/IBM/ibm-licensing-operator"
-      targetRevision: "master"
+    - repoURL: "https://github.com/luan-nabarrete/ibm-licensing-operator"
+      targetRevision: "latest-4.x"
       path: deploy/argo-cd/components/license-service/helm-cluster-scoped
-    - repoURL: "https://github.com/IBM/ibm-licensing-operator"
-      targetRevision: "master"
-      path: deploy/argo-cd/components/license-service/helm
+      helm:
+        valueFiles:
+          - 'values.yaml'
+    - repoURL: "https://github.com/luan-nabarrete/ibm-licensing-operator"
+      targetRevision: "latest-4.x"
+      path: deploy/argo-cd/prerequisites/licensing
